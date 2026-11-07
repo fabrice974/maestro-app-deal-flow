@@ -1,7 +1,21 @@
 {
   "name": "@maestro/app-deal-flow",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
-  "scripts": { "start": "tsx src/main.ts" },
-  "dependencies": { "@maestro/kit-app": "*", "@maestro/client-backbone": "*" }
+  "scripts": {
+    "start": "tsx --env-file-if-exists=.env src/main.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@maestro/sdk": "github:fabrice974/maestro-sdk-ts#v1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0"
+  },
+  "engines": {
+    "node": ">=24"
+  }
 }

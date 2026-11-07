@@ -2,8 +2,8 @@
  * Application « Deal flow » (simulée) : enregistre les occasions et réalise les tâches du deal flow.
  * Elle ne dépend que du client du backbone : aucune notion de Camunda, de BPMN ou d'instance.
  */
-import { enTantQue } from '@maestro/client-backbone';
-import { demarrerApp, e, msg } from '@maestro/kit-app';
+import { enTantQue } from '@maestro/sdk/client';
+import { demarrerApp, e, msg } from '@maestro/sdk/kit';
 
 const PHASES: Record<string, string> = {
   'deal-flow': 'Deal flow',
@@ -17,8 +17,8 @@ const PHASES: Record<string, string> = {
 await demarrerApp({
   id: 'deal-flow',
   nom: 'Deal flow',
-  port: 4101,
-  jeton: 'demo-jeton-deal-flow',
+  port: Number(process.env.PORT ?? 4101),
+  jeton: process.env.JETON_APP ?? 'demo-jeton-deal-flow',
   couleur: '#1f5fa8',
   utilisateurParDefaut: 'alice',
   accueil: async ({ client, utilisateur }) => {
